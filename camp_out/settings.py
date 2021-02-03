@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'camp_out.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'campingapi',
+        'NAME': 'campout',
     }
 }
 

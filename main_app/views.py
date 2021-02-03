@@ -14,11 +14,5 @@ def landing(request):
         data_all = response.json()
         spots = data_all['data']
         all_campsites = spots
-        print(all_campsites)
-       
-        for i in spots:
-            print(i['name'])
-            
- 
     return render(request, 'landing.html', {'all_campsites': all_campsites})
    

@@ -1,0 +1,8 @@
+.campsite-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: auto;
+}

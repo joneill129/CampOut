@@ -11,24 +11,12 @@ class Campground(models.Model):
     state = models.CharField(max_length=20)
     address = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=15)
-    classification = models.CharField(max_length=100)
-    totalsites = models.CharField(max_length=10)
-    cost = models.CharField(max_length=10)
-    Image = models.ImageField()
-
+    url = models.URLField
+    
     def __str__(self):
         return self.name
 
 class Trip(models.Model):
-    date = models.DateField()
-    name = models.CharField(max_length=200, default='')
-    city = models.CharField(max_length=20)
-    state = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
-    zipcode = models.CharField(max_length=15)
-    classification = models.CharField(max_length=100)
-    totalsites = models.CharField(max_length=10)
-    cost = models.CharField(max_length=10)
-    Image = models.ImageField()
+    date = models.DateField('Trip Date')
     directions = models.URLField()
 

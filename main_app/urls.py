@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.landing, name='landing'),
-    # path('campsites/', views.trips_index, name='trips_index')
+    path('campgrounds/', views.pocketbook, name='campgrounds_pocketbook')
 ]

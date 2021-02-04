@@ -2,10 +2,10 @@
 {% load static %}
 {% block content %}
 <div class = "landing-header">
-<h2 class = "text-center">Search Campsites</h2> 
+<h2 class = "text-center">Search Campgrounds</h2> 
 <form action ='' method="GET">
   <input type = "text" name = "stateCode" placeholder="Search..." class = "text-center">
-  <button type = "submit" class = "btn-danger btn-sm">SEARCH CAMPSITES</button>
+  <button type = "submit" class = "btn-danger btn-sm">Search Campgrounds</button>
 </form>
 </div>
 <div class="campsite-container">
@@ -16,6 +16,7 @@
   <img src={{i.images.0.url}} class="card-img-top" alt="...">
     {% else %}
     <img src={{i.images.0.url}} class="card-img-top" alt="...">
+    {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{i.name}}</h5>
     {% if i.addresses %}
@@ -30,8 +31,9 @@
     <li class="list-group-item"></li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <form action='{% url "campgrounds_pocketbook" %}' method='POST'>
+    <a href="#" class="card-link">Save</a>
+  </form>
   </div>
 </div>
 {% endfor %}

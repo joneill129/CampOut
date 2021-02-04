@@ -27,6 +27,9 @@ class Trip(models.Model):
 
     campground = models.ForeignKey(Campground, on_delete=models.CASCADE)
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+
 
    
 

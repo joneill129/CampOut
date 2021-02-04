@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from .models import Campground
+from .models import Campground, Photo
 from .forms import TripForm
 import requests
 import os
@@ -46,6 +46,11 @@ def add_trip(request, campground_id):
         new_trip.campground_id = campground_id
         new_trip.save()
         return redirect('detail', campground_id=campground_id)
+
+def add_photo(request):
+    photos = Photo.objects.all()
+    return render(request, 'campgrounds/photos.html', {'photos': photos})
+    
 
 class CampgroundCreate(CreateView):
     model = Campground

@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from .models import Campground
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
+from .models import Campground
+from .forms import TripForm
 import requests
 import os
+
 api_key = os.environ['API_KEY']
 parameters = {"api_key":api_key} 
 
@@ -31,7 +33,19 @@ def pocketbook(request):
 
 def adventure_detail(request, campground_id):
     campground = Campground.objects.get(id=campground_id)
-    return render(request, 'campgrounds/detail.html', {'campground': campground})
+    trip_form = TripForm()
+    return render(request, 'campgrounds/detail.html', {
+        'campground': campground,
+        'trip_form': trip_form
+        })
+
+def add_trip(request, campground_id):
+    form = TripForm(request.POST)
+    if form.is_valid():
+        new_trip = form.save(commit=False)
+        new_trip.campground_id = campground_id
+        new_trip.save()
+        return redirect('detail', campground_id=campground_id)
 
 class CampgroundCreate(CreateView):
     model = Campground

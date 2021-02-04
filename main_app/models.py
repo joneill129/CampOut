@@ -27,8 +27,6 @@ class Trip(models.Model):
 
     campground = models.ForeignKey(Campground, on_delete=models.CASCADE)
 
-    # def __str__(self):
-    #     return f"{self.date}"
 
    
 

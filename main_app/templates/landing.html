@@ -10,15 +10,23 @@
 </div>
 <div class="campsite-container">
 {% for i in all_campsites %}
+
 <div class="card">
-  <img src="..." class="card-img-top" alt="...">
+  {% if i.images %}
+  <img src={{i.images.0.url}} class="card-img-top" alt="...">
+    {% else %}
+    <img src={{i.images.0.url}} class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{i.name}}</h5>
-    
+    {% if i.addresses %}
+      <p class="card-title">{{ i.addresses.0.city }}</p>
+      <hp class="card-title">{{ i.addresses.0.line1 }}, {{ i.addresses.0.stateCode }}, {{ i.addresses.0.postalCode }}</p>
+        {% else %}
+          <p>The great outdoors!</p>
+      {% endif %}
   </div>
   <ul class="list-group list-group-flush">
-    
-    <li class="list-group-item"></li>
+    <li class="list-group-item">Total Sites:{{i.campsites.totalSites}}</li>
     <li class="list-group-item"></li>
   </ul>
   <div class="card-body">

@@ -10,7 +10,6 @@ def landing(request):
         statecode = request.GET['stateCode']
         endpoint = "https://developer.nps.gov/api/v1/campgrounds?stateCode=%s" %statecode
         response = requests.get(endpoint, params=parameters)
-        print("response status code: " + str(response.status_code))
         data_all = response.json()
         spots = data_all['data']
         all_campsites = spots

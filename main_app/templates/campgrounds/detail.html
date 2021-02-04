@@ -2,12 +2,15 @@
 {% block content %}
 <h1>Details go here!</h1>
 <div class="card border-success mb-3" style="max-width: 40rem; height: 20rem;">
-    <div class="card-header bg-transparent border-success">trip date will go here</div>
+    {% for trip in campground.trip_set.all %}
+    <div class="card-header bg-transparent border-success">{{ trip.startdate }} - {{ trip.enddate }}</div>
+    {% endfor %}
     <div class="card-body text-success">
       <h5 class="card-title">{{ campground.name }}</h5>
       <p class="card-text">{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
+      <p>{{ campground.phone }}</p>
       <p>reservation link will go here</p>
     </div>
-    <div class="card-footer bg-transparent border-success">directions link will go here</div>
+    <div class="card-footer bg-transparent border-success">{{ campground.directions }}</div>
   </div>
 {% endblock %}

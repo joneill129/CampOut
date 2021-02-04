@@ -8,11 +8,12 @@ from django.db import models
 
 class Campground(models.Model):
     name = models.CharField(max_length=200, default='')
-    city = models.CharField(max_length=20)
-    state = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
-    zipcode = models.CharField(max_length=15)
-    url = models.URLField
+    city = models.CharField(max_length=20, default='')
+    state = models.CharField(max_length=20, default='')
+    address = models.CharField(max_length=100, default='')
+    zipcode = models.CharField(max_length=15, default='')
+    directions = models.CharField(max_length=200, default='')
+    phone = models.CharField(max_length=15, default='')
     
     def __str__(self):
         return self.name
@@ -21,6 +22,13 @@ class Campground(models.Model):
         return reverse('detail', kwargs={'campground_id': self.id})
 
 class Trip(models.Model):
-    date = models.DateField('Trip Date')
-    directions = models.URLField()
+    startdate = models.DateField('Start Date')
+    enddate = models.DateField('End Date')
+
+    campground = models.ForeignKey(Campground, on_delete=models.CASCADE)
+
+    # def __str__(self):
+    #     return f"{self.date}"
+
+   
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render
-import requests
 from .models import Campground
+from django.views.generic.edit import CreateView
+import requests
 import os
 api_key = os.environ['API_KEY']
 parameters = {"api_key":api_key} 
@@ -26,7 +27,12 @@ def landing(request):
 
 def pocketbook(request):
     campgrounds = Campground.objects.all()
-    return render(request, 'campgrounds/pocketbook.html', {'campgrounds': campground})
+    return render(request, 'campgrounds/pocketbook.html', {'campgrounds': campgrounds})
+
+class CampgroundCreate(CreateView):
+    model = Campground
+    fields = '__all__'
+    success_url = '/campgrounds/'
 
 
    

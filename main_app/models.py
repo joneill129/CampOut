@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 from django.db import models
@@ -15,6 +16,9 @@ class Campground(models.Model):
     
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'campground_id': self.id})
 
 class Trip(models.Model):
     date = models.DateField('Trip Date')

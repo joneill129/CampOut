@@ -13,7 +13,7 @@
         <div class="card-body">
           <h4 class="card-title">{{ campground.name }}</h4>
           <p class="card-text">{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text"><a href='{% url "detail" campground.id %}'>Plan</a>&ensp;<a href='#'>Delete</a></p>
         </div>
       </div>
     </div>

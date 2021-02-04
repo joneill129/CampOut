@@ -29,6 +29,10 @@ def pocketbook(request):
     campgrounds = Campground.objects.all()
     return render(request, 'campgrounds/pocketbook.html', {'campgrounds': campgrounds})
 
+def adventure_detail(request, campground_id):
+    campground = Campground.objects.get(id=campground_id)
+    return render(request, 'campgrounds/detail.html', {'campground': campground})
+
 class CampgroundCreate(CreateView):
     model = Campground
     fields = '__all__'

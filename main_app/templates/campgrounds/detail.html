@@ -10,13 +10,14 @@
       <p class="card-text">{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
       <p>{{ campground.phone }}</p>
       <p>reservation link will go here</p>
+      <a href="{% url 'campground_update' campground.id %}">Edit Campground</a>
     </div>
     <div class="card-footer bg-transparent border-success">{{ campground.directions }}</div>
   </div>
   <div class=trip-from>
   <form action="{% url 'add_trip' campground.id %}"method='post'>
     {% csrf_token %}
-    {{ trip_form.as_p }}
+    {{ trip_form.as_table }}
     <button type="submit" class="btn">Add</button>
   </form>
 </div>

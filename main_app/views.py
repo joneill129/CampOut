@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Campground, Photo
 from .forms import TripForm
 import requests
@@ -56,6 +56,10 @@ class CampgroundCreate(CreateView):
     model = Campground
     fields = '__all__'
     success_url = '/campgrounds/'
+
+class CampgroundUpdate(UpdateView):
+    model = Campground
+    fields = ['city', 'state', 'zipcode', 'phone', 'directions']
 
 
    

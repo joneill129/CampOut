@@ -4,4 +4,4 @@ from .models import Trip
 class TripForm(ModelForm):
     class Meta:
         model = Trip
-        fields = ['startdate', 'enddate']
+        fields = ['startdate', 'enddate', 'reservation']

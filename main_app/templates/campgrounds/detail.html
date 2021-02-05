@@ -1,27 +1,46 @@
 {% extends 'base.html'%}
 {% block content %}
-<div class="card border-success mb-3" style="max-width: 40rem; height: 20rem;">
-    {% for trip in campground.trip_set.all %}
-    <div class="card-header bg-transparent border-success"><p>{{ trip.startdate }} - {{ trip.enddate }}</p></div>
-    {% endfor %}
-    <div class="card-body text-success">
-      <h5 class="card-title">{{ campground.name }}</h5>
-      <p class="card-text">{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
-      <p>{{ campground.phone }}</p>
-      <p><a href='{{ trip.reservation }}'>My Reservation</p></a>
-      <p><a href="{% url 'campground_update' campground.id %}">Edit Campground</a>&ensp;<a href="{% url 'campground_delete' campground.id %}">Delete</a></p>
-      
-    </div>
-    <div class="card-footer bg-transparent border-success">{{ campground.directions }}</div>
-  </div>
-  <h3>Add Trip Details:</h3>
+<h3>Add Trip Details:</h3>
   <div class=trip-from>
    
     <form action="{% url 'add_trip' campground.id %}"method='post'>
         {% csrf_token %}
-        {{ trip_form.as_p }}
+        {{ trip_form.as_table }}
         <button type="submit" class="btn">Add Trip</button>
       </form>
     
 </div>
+<div class="row g-0 bg-light position-relative">
+    <div class="col-md-6 mb-md-0 p-md-4">
+        <h5 class="mt-0">{{ campground.name }}</h5>
+        <p>{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
+        <p>{{ campground.phone }}</p>
+        <p>Directions: {{ campground.directions }}</p>
+        <p><a href="{% url 'campground_update' campground.id %}" class="stretched-link">Edit</a>&ensp;<a href="{% url 'campground_delete' campground.id %}">Delete</a></p>
+    </div>
+    <div class="col-md-6 p-4 ps-md-0">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">My Reservation&ensp;</th>
+              </tr>
+            </thead>
+            {% for trip in campground.trip_set.all %}
+            <tbody>
+              <tr>
+                <td>{{ trip.startdate }}</td>
+                <td>{{ trip.enddate }}</td>
+                <td>{{ trip.reservation }}&emsp;&emsp;<a href="{% url 'campground_update' campground.id %}">✏️</a>&ensp;<a href="{% url 'campground_delete' campground.id %}">x</a></td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+
+    </div>
+  </div>
+
+
+  
 {% endblock %}

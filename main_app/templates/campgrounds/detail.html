@@ -32,7 +32,7 @@
               <tr>
                 <td>{{ trip.startdate }}</td>
                 <td>{{ trip.enddate }}</td>
-                <td>{{ trip.reservation }}&emsp;&emsp;<a href="{% url 'campground_update' campground.id %}">✏️</a>&ensp;<a href="{% url 'campground_delete' campground.id %}">x</a></td>
+                <td>{{ trip.reservation }}&emsp;&emsp;<a href="{% url 'trip_update' trip.id %}">✏️</a>&ensp;<a href="{% url 'trip_delete' trip.id %}">x</a></td>
               </tr>
             </tbody>
             {% endfor %}

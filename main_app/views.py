@@ -82,6 +82,10 @@ class TripUpdate(LoginRequiredMixin, UpdateView):
     model = Trip
     fields = ['startdate', 'enddate', 'reservation']
 
+class TripDelete(LoginRequiredMixin, DeleteView):
+    model = Trip
+    success_url = '/details/'
+
 
 
 def signup(request):

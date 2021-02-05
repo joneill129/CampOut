@@ -124,4 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_REDIRECT_URL = '/campgrounds/'
+
+LOGOUT_REDIRECT_URL = '/'
+
 

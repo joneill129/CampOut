@@ -12,5 +12,6 @@ urlpatterns = [
     path('campgrounds/<int:pk>/delete/', views.CampgroundDelete.as_view(), name='campground_delete'),
     path('campgrounds/<int:campground_id>/add_trip/', views.add_trip, name='add_trip'),
     path('campgrounds/<int:pk>/', views.TripUpdate.as_view(), name='trip_update'),
-    path('campgrounds/photos', views.add_photo, name='add_photo')
+    path('campgrounds/photos', views.add_photo, name='add_photo'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]

@@ -4,6 +4,10 @@ from .models import Campground, Photo, Trip
 from .forms import TripForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 import requests
 import os
 
@@ -19,13 +23,17 @@ def landing(request):
         data_all = response.json()
         spots = data_all['data']
         all_campsites = spots
-
     return render(request, 'landing.html', {'all_campsites': all_campsites})
 
+@login_required
 def pocketbook(request):
-    campgrounds = Campground.objects.all()
-    return render(request, 'campgrounds/pocketbook.html', {'campgrounds': campgrounds})
+    campgrounds = Campground.objects.filter(user=request.user)
+    return render(request, 
+    'campgrounds/pocketbook.html', 
+    {'campgrounds': campgrounds}
+    )
 
+@login_required
 def adventure_detail(request, campground_id):
     campground = Campground.objects.get(id=campground_id)
     trip_form = TripForm()
@@ -34,20 +42,26 @@ def adventure_detail(request, campground_id):
         'trip_form': trip_form
         })
 
+@login_required
 def add_trip(request, campground_id):
     form = TripForm(request.POST)
     if form.is_valid():
         new_trip = form.save(commit=False)
         new_trip.campground_id = campground_id
         new_trip.save()
-        return redirect('detail', campground_id=campground_id)
+        return redirect('detail', 
+        campground_id=campground_id
+        )
 
 def add_photo(request):
     photos = Photo.objects.all()
-    return render(request, 'campgrounds/photos.html', {'photos': photos})
-    
+    return render(request, 
+    'campgrounds/photos.html', 
+    {'photos': photos}
+    )
 
-class CampgroundCreate(CreateView):
+
+class CampgroundCreate(LoginRequiredMixin, CreateView):
     model = Campground
     fields = '__all__'
     success_url = '/campgrounds/'
@@ -56,18 +70,19 @@ class CampgroundCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-
-class CampgroundUpdate(UpdateView):
+class CampgroundUpdate(LoginRequiredMixin, UpdateView):
     model = Campground
     fields = ['city', 'state', 'zipcode', 'phone', 'directions']
 
-class CampgroundDelete(DeleteView):
+class CampgroundDelete(LoginRequiredMixin, DeleteView):
     model = Campground
     success_url = '/campgrounds/'
 
-class TripUpdate(UpdateView):
+class TripUpdate(LoginRequiredMixin, UpdateView):
     model = Trip
     fields = ['startdate', 'enddate', 'reservation']
+
+
 
 def signup(request):
   error_message = ''

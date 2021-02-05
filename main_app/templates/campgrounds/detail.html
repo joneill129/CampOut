@@ -1,6 +1,5 @@
 {% extends 'base.html'%}
 {% block content %}
-<h1>Details go here!</h1>
 <div class="card border-success mb-3" style="max-width: 40rem; height: 20rem;">
     {% for trip in campground.trip_set.all %}
     <div class="card-header bg-transparent border-success"><p>{{ trip.startdate }} - {{ trip.enddate }}</p></div>
@@ -9,16 +8,20 @@
       <h5 class="card-title">{{ campground.name }}</h5>
       <p class="card-text">{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
       <p>{{ campground.phone }}</p>
-      <p>reservation link will go here</p>
-      <a href="{% url 'campground_update' campground.id %}">Edit Campground</a>
+      <p><a href='{{ trip.reservation }}'>My Reservation</p></a>
+      <p><a href="{% url 'campground_update' campground.id %}">Edit Campground</a>&ensp;<a href="{% url 'campground_delete' campground.id %}">Delete</a></p>
+      
     </div>
     <div class="card-footer bg-transparent border-success">{{ campground.directions }}</div>
   </div>
+  <h3>Add Trip Details:</h3>
   <div class=trip-from>
-  <form action="{% url 'add_trip' campground.id %}"method='post'>
-    {% csrf_token %}
-    {{ trip_form.as_table }}
-    <button type="submit" class="btn">Add</button>
-  </form>
+   
+    <form action="{% url 'add_trip' campground.id %}"method='post'>
+        {% csrf_token %}
+        {{ trip_form.as_p }}
+        <button type="submit" class="btn">Add Trip</button>
+      </form>
+    
 </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView
-from .models import Campground, Photo
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Campground, Photo, Trip
 from .forms import TripForm
 import requests
 import os
@@ -17,13 +17,6 @@ def landing(request):
         data_all = response.json()
         spots = data_all['data']
         all_campsites = spots
-
-        # for i in spots:
-        #     if request.post:
-        #         camp_data = Campsite(
-        #             name = []
-        #         )
-
 
     return render(request, 'landing.html', {'all_campsites': all_campsites})
 
@@ -60,6 +53,16 @@ class CampgroundCreate(CreateView):
 class CampgroundUpdate(UpdateView):
     model = Campground
     fields = ['city', 'state', 'zipcode', 'phone', 'directions']
+
+class CampgroundDelete(DeleteView):
+    model = Campground
+    success_url = '/campgrounds/'
+
+class TripUpdate(UpdateView):
+    model = Trip
+    fields = ['startdate', 'enddate', 'reservation']
+
+
 
 
    

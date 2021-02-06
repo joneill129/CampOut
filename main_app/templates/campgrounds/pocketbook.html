@@ -3,13 +3,13 @@
 {% load static %}
 
 <h1 class="pocketbook-title">Upcoming Adventures</h1>
+{% if campgrounds %}
 <div class="pocketbook-container">
 {% for campground in campgrounds %}
-
 <div class="card mb-3 border-primary" style="max-width: 700px;" id="pocketbook-card" >
     <div class="row g-0">
       <div class="col-md-4" >
-        <img src="{% static 'images/search.jpg' %}" alt="campfire" style="width: 12rem; height: 10rem;">
+        <img src="{% static 'images/search.jpg' %}" alt="campfire" id="filler-img">
       </div>
       <div class="col-md-8">
           <div class="name">
@@ -25,4 +25,7 @@
   </div>
   {% endfor %}
 </div>
+ {% else %}
+  <p class="no-adventures">You don't have any upcomming adventures saved yet!<br><a href="{% url 'campgrounds_create' %}" rel="add_campsite">Click here to get started</a></p>
+  {% endif %}
 {% endblock %}

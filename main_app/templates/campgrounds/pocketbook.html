@@ -3,21 +3,26 @@
 {% load static %}
 
 <h1 class="pocketbook-title">Upcoming Adventures</h1>
-
+<div class="pocketbook-container">
 {% for campground in campgrounds %}
-<div class="card mb-3" style="max-width: 600px;">
+
+<div class="card mb-3 border-primary" style="max-width: 700px;" id="pocketbook-card" >
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="..." alt="...">
+      <div class="col-md-4" >
+        <img src="{% static 'images/search.jpg' %}" alt="campfire" style="width: 12rem; height: 10rem;">
       </div>
       <div class="col-md-8">
+          <div class="name">
+        <h4 class="card-title">{{ campground.name }}</h4>
+          </div>
         <div class="card-body">
-          <h4 class="card-title">{{ campground.name }}</h4>
-          <p class="card-text">{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
-          <p class="card-text"><a href='{% url "detail" campground.id %}'>Plan</a>&ensp;<a href='#'>Delete</a></p>
+        <strong>Where:</strong> {{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}<br>
+        <strong>Phone:</strong> {{campground.phone}}
+          <p class="card-text"><a href='{% url "detail" campground.id %}' rel="plan_trip">Trip Details</a>
         </div>
       </div>
     </div>
   </div>
-{% endfor %}
+  {% endfor %}
+</div>
 {% endblock %}

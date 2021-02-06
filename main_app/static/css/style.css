@@ -7,7 +7,7 @@
     background-color: rgb(0, 54, 7);
     height: 300px;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .search-header {
@@ -17,19 +17,20 @@
 #search-input {
     width: 17rem;
     height: 2rem;
-   
 }
+
 
 .campsite-container {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     margin: auto;
+    padding-left: 2rem;
     word-wrap: break-word;
 }
 
-.card {
+#search {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -38,19 +39,43 @@
    word-wrap: break-word;
 }
 
-.card-body {
+#search-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
     height: 400px;  
 }
 
+.right {
+    background-color: rgb(0, 54, 7);
+    color: white;
+    margin-top: 20px;
+}
 
+.pocketbook-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, minmax(200px, 2fr));
+    gap: 3rem;
+    word-wrap: break-word;
+ 
+}
 
 .pocketbook-title {
-    color: blue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+.name {
+    background-color: rgb(0, 54, 7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

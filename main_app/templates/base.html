@@ -22,10 +22,10 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
+                    <a class="nav-item nav-link px-3" href="{% url 'campgrounds_create' %}" style="color: #ffffff"
+                        rel="add_campsite">Add My Spot</a>
                     <a class="nav-item nav-link active px-3" href="{% url 'pocketbook' %}" style="color: #ffffff"
                         rel="index">My Pocketbook<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link px-3" href="{% url 'campgrounds_create' %}" style="color: #ffffff"
-                        rel="add_campsite">Add Spot</a>
                     <a class="nav-item nav-link px-3" href="{% url 'photos' %}" style="color: #ffffff"
                         rel="photos">Photo Albumn</a>
                     <a class="nav-item nav-link px-3" href="/" style="color: #ffffff" rel="search">Campground Search</a>
@@ -45,8 +45,10 @@
         </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="footer">
-        <div></div>
+    <footer class="fixed-bottom">
+        <div class="right">
+            All Rights Reserved, &copy; 2021 CampOut &nbsp;
+          </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

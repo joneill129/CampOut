@@ -1,15 +1,18 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
+<div class="add-trip-container">
+<div class="add-trip-details">
 <h3>Add Trip Details:</h3>
+</div>
   <div class=trip-from>
-   
     <form action="{% url 'add_trip' campground.id %}"method='post'>
         {% csrf_token %}
         {{ trip_form.as_table }}
         <button type="submit" class="btn">Add Trip</button>
       </form>
     
+</div>
 </div>
 <div class="row g-0 bg-light position-relative">
     <div class="col-md-6 mb-md-0 p-md-4">

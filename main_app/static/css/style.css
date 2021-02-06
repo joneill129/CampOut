@@ -82,6 +82,43 @@
     height: 10rem;
 }
 
+.add-trip-details {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 1rem;
+}
+
+.add-trip-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 54, 7);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 8rem;
+    
+}
+
+input#id_reservation {
+   margin-left: 1rem;
+}
+
+input#id_startdate {
+    margin-left: 1rem;
+ }
+
+ input#id_enddate {
+    margin-left: 1rem;
+ }
+
+ label {
+     margin-left: 1rem;
+ }
+
+
+
 
 
 @media only screen and (max-width: 600px) {

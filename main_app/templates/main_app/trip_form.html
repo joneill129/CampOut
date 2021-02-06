@@ -1,3 +1,5 @@
+{% load static %}
+Edit trip details for {{ campground.name }}
 <form action='' method='post'>
     {% csrf_token %}
     <table>
@@ -5,3 +7,13 @@
     </table>
     <input type='submit' value='Submit' class='btn'>
 </form>
+
+{% if trip %}
+    {% for trip in campground.trip_set.all %}
+  <div class="trips">
+    <p>{{trip.startdate}}</p><a href="{% url 'trips_delete' trip.id %}">DELETE</a>
+</div>
+    {% endfor %}
+{% else %}
+    <p>Nothing to delete</p>
+{% endif %}

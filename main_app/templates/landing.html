@@ -1,21 +1,26 @@
 {% extends 'base.html'%}
-{% load static %}
 {% block content %}
-<div class = "landing-header">
-<h2 class = "text-center">Search Campgrounds</h2> 
-<form action ='' method="GET">
-  <input type = "text" name = "stateCode" placeholder="Search..." class = "text-center">
-  <button type = "submit" class = "btn-danger btn-sm">Search Campgrounds</button>
+{% load static %}
+<div class="landing-header">
+<h2 class="search-header">Plan your next adventure</h2>
+{% if user.is_authenticated %}
+<p>Search, Reserve, Track..</p> 
+  {% else %}
+<p>Search campgrounds, make reservations, and log your new adventure </p>
+{% endif%}
+<form action='' method="GET">
+  <input type="text" name ="stateCode" placeholder="Enter state code" class ="text-center" id="search-input">
+  <button type="submit" class ="btn-danger btn-md">Search Campgrounds</button>
 </form>
 </div>
 <div class="campsite-container">
 {% for i in all_campsites %}
 
 <div class="card">
-  {% if i.images %}
+  {% if i.images.0.url %}
   <img src={{i.images.0.url}} class="card-img-top" alt="...">
-    {% else %}
-    <img src={{i.images.0.url}} class="card-img-top" alt="...">
+  {% else %}
+  <img src="{% static 'images/search.jpg' %}" class="card-img-top" alt="...">
     {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{i.name}}</h5>
@@ -25,15 +30,10 @@
         {% else %}
           <p>The great outdoors!</p>
       {% endif %}
+      <p>Total Sites:{{i.campsites.totalSites}}</p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Total Sites:{{i.campsites.totalSites}}</li>
-  </ul>
-  <div class="card-body">
-    <form action='{% url "campgrounds_pocketbook" %}' method='POST'>
-    <a href="#" class="card-link">Save</a>
+    <a href={{i.reservationUrl}} class="card-link">Reserve</a>
   </form>
-  </div>
 </div>
 {% endfor %}
 </div>

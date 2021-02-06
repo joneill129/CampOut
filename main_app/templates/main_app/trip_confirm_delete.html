@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
   <h1>THIS IS A DELETE PAGE</h1>
@@ -8,6 +9,6 @@
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes - Delete!" class="btn">
-    <a href="{% url 'detail' campground.id %}">CANCEL</a>
+    <a href="{% url 'pocketbook' trip.id %}">CANCEL</a>
   </form>
 {% endblock %}

@@ -38,6 +38,9 @@ class Trip(models.Model):
 class Photo(models.Model):
     url = models.CharField(max_length=200)
 
+    def get_absolute_url(self):
+        return reverse('photos', kwargs={'photo_id': self.id})
+
 
    
 

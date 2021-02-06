@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load static %}
 {% block content %}
 <h3>Add Trip Details:</h3>
   <div class=trip-from>
@@ -32,7 +33,7 @@
               <tr>
                 <td>{{ trip.startdate }}</td>
                 <td>{{ trip.enddate }}</td>
-                <td>{{ trip.reservation }}&emsp;&emsp;<a href="{% url 'trip_update' trip.id %}">✏️</a>&ensp;<a href="{% url 'trip_delete' trip.id %}">x</a></td>
+                <td>{{ trip.reservation }}&emsp;&emsp;<a href="{% url 'trip_update' trip.id %}">✏️<a href="{% url 'trips_delete' trip.id %}">DELETE</a>
               </tr>
             </tbody>
             {% endfor %}

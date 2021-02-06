@@ -1,7 +1,8 @@
 {% extends 'base.html'%}
 {% block content %}
+{% load static %}
 
-<h1>Upcoming Adventures</h1>
+<h1 class="pocketbook-title">Upcoming Adventures</h1>
 
 {% for campground in campgrounds %}
 <div class="card mb-3" style="max-width: 600px;">

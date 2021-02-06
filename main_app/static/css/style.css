@@ -1,14 +1,4 @@
-.campsite-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
-    gap: 1rem;
-    max-width: 900px;
-    margin: auto;
-}
-
 .landing-header {
-    background: url('/static/imgages/landingpic.jpg');
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -30,7 +20,32 @@
    
 }
 
+.campsite-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: auto;
+    word-wrap: break-word;
+}
 
+.card {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   max-height: 450px;
+   width: 300px;
+   word-wrap: break-word;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 400px;  
+}
 
 
 

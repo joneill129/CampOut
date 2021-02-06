@@ -16,23 +16,24 @@
 <div class="campsite-container">
 {% for i in all_campsites %}
 
-<div class="card">
+<div class="card" style="border: 5px, solid, rgb(0, 54, 7);">
   {% if i.images.0.url %}
-  <img src={{i.images.0.url}} class="card-img-top" alt="...">
+  <img src={{i.images.0.url}} class="card-img-top" alt="..." style="height: 11rem;">
   {% else %}
-  <img src="{% static 'images/search.jpg' %}" class="card-img-top" alt="...">
+  <img src="{% static 'images/search.jpg' %}" class="card-img-top" alt="..." class="search-img2">
     {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{i.name}}</h5>
     {% if i.addresses %}
       <p class="card-title">{{ i.addresses.0.city }}</p>
-      <hp class="card-title">{{ i.addresses.0.line1 }}, {{ i.addresses.0.stateCode }}, {{ i.addresses.0.postalCode }}</p>
+      <p>{{ i.addresses.0.line1 }}, <br>{{ i.addresses.0.stateCode }}, {{ i.addresses.0.postalCode }}</p>
         {% else %}
           <p>The great outdoors!</p>
       {% endif %}
       <p>Total Sites:{{i.campsites.totalSites}}</p>
+      <a href={{i.reservationUrl}} class ="btn-danger btn-md"><button class ="btn-danger btn-md">Reserve</button></a>
   </div>
-    <a href={{i.reservationUrl}} class="card-link">Reserve</a>
+    
   </form>
 </div>
 {% endfor %}

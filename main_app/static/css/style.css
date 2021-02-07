@@ -61,6 +61,14 @@
 }
 
 /* Index(Pocketbook) page */
+
+p.no-adventures {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .pocketbook-container {
     display: grid;
     align-items: center;

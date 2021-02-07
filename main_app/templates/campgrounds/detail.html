@@ -11,7 +11,6 @@
         {{ trip_form.as_table }}
         <button type="submit" class="btn-danger" id="add-trip-button">Add Trip</button>
       </form>
-    
 </div>
 </div>
 <div class="row g-0 position-relative" id="details-container">
@@ -22,10 +21,9 @@
         <p><strong>Directions:</strong> {{ campground.directions }}</p>
         <img src="{% static 'images/tent.png' %}" alt="tent" class="tent">
         <div class="detail-links">
-        <a href="{% url 'campground_update' campground.id %}">Edit</a>&emsp;<a href="{% url 'campground_delete' campground.id %}" class="delete">Delete</a>
+          <div class="edit-del">
+        <a href="{% url 'campground_update' campground.id %}">Edit</a>&emsp;<a href="{% url 'campground_delete' campground.id %}" class="delete">Delete</a></div>
     </div>
-        
-        
     </div>
     <div class="col-md-6 p-4 ps-md-0">
         <table class="table">
@@ -46,7 +44,6 @@
             </tbody>
             {% endfor %}
           </table>
-
     </div>
   </div>
 

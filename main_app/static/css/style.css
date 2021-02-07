@@ -1,3 +1,7 @@
+.container {
+    margin-top: 20px;
+}
+
 /* landing/Search page */
 .landing-header {
     margin-top: 50px;
@@ -150,10 +154,10 @@ input#id_startdate {
      color: #d9534f;
  }
 
- .link {
-     display: flex;
-     flex-direction: center;
- }
+.edit-del {
+    display: flex;
+}
+
 
 /* Add Campground Page */
 #add-campground-header {
@@ -267,8 +271,11 @@ input#id_reservation_link {
 }
 
 /* Delete entire campground entry page */
-
-
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -324,7 +331,44 @@ input#id_reservation_link {
     margin-top: 20px;
     margin-left: 2rem;
 }
-  
+.edit-header {
+    background-color: #0275d8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 330px;
+}
+input#id_startdate {
+    width: 8rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+}
+
+input#id_enddate {
+    width: 8rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+}
+
+input#id_reservation_link {
+    width: 8rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+}
+div#edit.body.card-body {
+    padding: 0;
+}
+
+label {
+    margin: 0;
+}
+
+div#edit-image.col-md-7 {
+    margin-right: 75px;
+    padding: 0;
+}
+
   }
 
   @media only screen and (max-width: 780px) {

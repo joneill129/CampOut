@@ -1,3 +1,4 @@
+/* landing/Search page */
 .landing-header {
     margin-top: 50px;
     display: flex;
@@ -47,12 +48,15 @@
     height: 400px;  
 }
 
+/* footer */
 .right {
     background-color: rgb(0, 54, 7);
     color: white;
     margin-top: 20px;
+    padding-left: 10px;
 }
 
+/* Index(Pocketbook) page */
 .pocketbook-container {
     display: grid;
     align-items: center;
@@ -82,6 +86,7 @@
     height: 10rem;
 }
 
+/* Detail page page */
 .add-trip-details {
     display: flex;
     justify-content: flex-start;
@@ -150,6 +155,7 @@ input#id_startdate {
      flex-direction: center;
  }
 
+/* Add Campground Page */
 #add-campground-header {
      margin-top: 50px;
      background-color: rgb(0, 54, 7);
@@ -202,9 +208,66 @@ input#id_phone {
 }
 
 #add-submit-btn {
-    margin-top: 20px;
-    margin-left: 25rem;
+    margin-top: 18px;
+    margin-left: 2rem;
 }
+
+/* Edit Trip Details Page*/
+.edit-header {
+    background-color: #0275d8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 699px;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    margin: 0 auto;
+    position: relative;
+    border: none;
+}
+
+#edit-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: left;
+    margin-top: 4rem;
+
+}
+
+#edit-body {
+    padding-top: 1rem;
+}
+
+input#id_startdate {
+    width: 12rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+input#id_enddate {
+    width: 12rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+input#id_reservation_link {
+    width: 12rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+#edit-btn {
+    margin-top: 1rem;
+}
+
+/* Delete entire campground entry page */
+
 
 
 

@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'base-m.html' %}
 {% load static %}
-
 {% block content %}
+
   <h1>THIS IS A DELETE PAGE</h1>
 
-  <h4>Are you sure you want to delete this entry?</h4>
+  <h4>Are you sure you want to delete this ENTIRE entry?</h4>
 
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn">
+    <input type="submit" value="Yes - Delete!" class="btn-danger">
     <a href="{% url 'detail' campground.id %}">CANCEL</a>
   </form>
 {% endblock %}

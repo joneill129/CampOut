@@ -19,7 +19,7 @@
         <p>{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
         <p><strong>P:&ensp;</strong>{{ campground.phone }}</p>
         <p><strong>Directions:</strong> {{ campground.directions }}</p>
-        <img src="{% static 'images/tent.png' %}" alt="tent" class="tent">
+        <img src="{% static 'css/images/tent.png' %}" alt="tent" class="tent">
         <div class="detail-links">
           <div class="edit-del">
         <a href="{% url 'campground_update' campground.id %}">Edit</a>&emsp;<a href="{% url 'campground_delete' campground.id %}" class="delete">Delete</a></div>

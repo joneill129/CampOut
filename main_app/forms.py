@@ -8,7 +8,7 @@ class DateInput(forms.DateInput):
 class TripForm(ModelForm):
     class Meta:
         model = Trip
-        fields = ['startdate', 'enddate', 'reservation']
+        fields = ['startdate', 'enddate', 'reservation_link']
         widgets = {
             'startdate': DateInput(),
             'enddate': DateInput()

@@ -101,7 +101,9 @@
     
 }
 
-input#id_reservation {
+
+
+input#id_reservation_link {
    margin-left: 1rem;
 }
 
@@ -114,10 +116,41 @@ input#id_startdate {
  }
 
  label {
+    margin-left: 2rem;
+ }
+
+ #add-trip-button {
      margin-left: 1rem;
  }
 
+ #campground-details {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
 
+ #details-container {
+     margin-bottom: 50px;
+ }
+
+ .tent {
+     height: 10rem;
+     width: 20rem;
+ }
+
+ .table {
+    border: 1px solid#428bca;
+ }
+
+ .delete {
+     color: #d9534f;
+ }
+
+ .link {
+     display: flex;
+     flex-direction: center;
+ }
 
 
 
@@ -131,6 +164,9 @@ input#id_startdate {
     #filler-img {
         width: 21rem; 
         height: 10rem;
+    }
+    .add-trip-container {
+        height: 15rem;
     }
   
   }

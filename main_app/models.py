@@ -28,7 +28,7 @@ class Campground(models.Model):
 class Trip(models.Model):
     startdate = models.DateField('Start Date')
     enddate = models.DateField('End Date')
-    reservation = models.CharField(max_length=500, default='')
+    reservation_link = models.CharField(max_length=500, default='')
 
     campground = models.ForeignKey(Campground, on_delete=models.CASCADE)
 

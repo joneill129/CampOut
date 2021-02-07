@@ -93,7 +93,7 @@ class CampgroundDelete(LoginRequiredMixin, DeleteView):
 
 class TripUpdate(LoginRequiredMixin, UpdateView):
     model = Trip
-    fields = ['startdate', 'enddate', 'reservation']
+    fields = ['startdate', 'enddate', 'reservation_link']
 
 class TripDelete(LoginRequiredMixin, DeleteView):
     model = Trip

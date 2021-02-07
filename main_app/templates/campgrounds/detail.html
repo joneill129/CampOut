@@ -9,18 +9,23 @@
     <form action="{% url 'add_trip' campground.id %}"method='post'>
         {% csrf_token %}
         {{ trip_form.as_table }}
-        <button type="submit" class="btn">Add Trip</button>
+        <button type="submit" class="btn-danger" id="add-trip-button">Add Trip</button>
       </form>
     
 </div>
 </div>
-<div class="row g-0 bg-light position-relative">
-    <div class="col-md-6 mb-md-0 p-md-4">
-        <h5 class="mt-0">{{ campground.name }}</h5>
+<div class="row g-0 position-relative" id="details-container">
+    <div class="col-md-6 mb-md-0 p-md-4" id="campground-details">
+        <h4 class="mt-0"><strong>{{ campground.name }}</strong></h4>
         <p>{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
-        <p>{{ campground.phone }}</p>
-        <p>Directions: {{ campground.directions }}</p>
-        <p><a href="{% url 'campground_update' campground.id %}" class="stretched-link">Edit</a>&ensp;<a href="{% url 'campground_delete' campground.id %}">Delete</a></p>
+        <p><strong>P:&ensp;</strong>{{ campground.phone }}</p>
+        <p><strong>Directions:</strong> {{ campground.directions }}</p>
+        <img src="{% static 'images/tent.png' %}" alt="tent" class="tent">
+        <div class="detail-links">
+        <a href="{% url 'campground_update' campground.id %}">Edit</a>&emsp;<a href="{% url 'campground_delete' campground.id %}" class="delete">Delete</a>
+    </div>
+        
+        
     </div>
     <div class="col-md-6 p-4 ps-md-0">
         <table class="table">
@@ -28,15 +33,15 @@
               <tr>
                 <th scope="col">Start Date</th>
                 <th scope="col">End Date</th>
-                <th scope="col">My Reservation&ensp;</th>
+                <th scope="col">Reservations&ensp;</th>
               </tr>
             </thead>
             {% for trip in campground.trip_set.all %}
             <tbody>
-              <tr>
+                <tr>
                 <td>{{ trip.startdate }}</td>
                 <td>{{ trip.enddate }}</td>
-                <td>{{ trip.reservation }}&emsp;&emsp;<a href="{% url 'trip_update' trip.id %}">✏️<a href="{% url 'trips_delete' trip.id %}">DELETE</a>
+                <td><a href={{ trip.reservation_link }}>My Reservation</a>&emsp;&emsp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
               </tr>
             </tbody>
             {% endfor %}

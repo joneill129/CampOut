@@ -9,15 +9,16 @@
         <h2>Add Campground Details</h2>
         {% endif %}
     </div>
-    <div class="card-body">
+    <div class="card-body" id="add-campground-body">
         <form action='' method='post'>
             {% csrf_token %}
             <table>
                 {{ form.as_table }}
             </table>
-            <button type="submit" class ="btn-danger btn-md">Submit</button>
+            <button type="submit" class ="btn-danger btn-md" id="add-submit-btn">Submit</button>
         </form>
     </div>
   </div>
+
 
 {% endblock %}

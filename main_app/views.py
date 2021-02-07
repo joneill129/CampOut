@@ -76,7 +76,7 @@ def photos(request):
 
 class CampgroundCreate(LoginRequiredMixin, CreateView):
     model = Campground
-    fields = '__all__'
+    fields = ['name','city', 'state', 'zipcode', 'phone', 'directions']
     success_url = '/campgrounds/'
 
     def form_valid(self, form):

@@ -1,3 +1,28 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  /* The Universal Selector */
+  *, /* All elements*/
+  *::before, /* All ::before pseudo-elements */
+  *::after {
+    /* All ::after pseudo-elements */
+    /* height & width will now include border & padding by default
+      but can be over-ridden as needed */
+    box-sizing: inherit;
+  }
+  
+  /* resets font size to be 62.5% of the user preference -
+    in most browser configurations this will be 10px */
+  :root {
+    font-size: 90%;
+  }
+  
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    height: 100vh;
+  }
+
 .container {
     margin-top: 20px;
 }
@@ -61,7 +86,6 @@
 }
 
 /* Index(Pocketbook) page */
-
 p.no-adventures {
     display: flex;
     flex-direction: column;
@@ -93,7 +117,7 @@ p.no-adventures {
 }
 
 #filler-img {
-    width: 12rem; 
+    width: 13rem; 
     height: 10rem;
 }
 
@@ -143,15 +167,25 @@ input#id_startdate {
      flex-direction: column;
      justify-content: center;
      align-items: center;
+     background-color: rgb(0, 54, 7);
+     color: white;
  }
 
  #details-container {
      margin-bottom: 50px;
  }
 
+ #trip-table {
+     background-color: rgb(0, 54, 7);;
+ }
+
+ td {
+     background-color: white;
+ }
+
  .tent {
-     height: 10rem;
-     width: 20rem;
+     height: 9rem;
+     width: 13rem;
  }
 
  .table {
@@ -294,17 +328,17 @@ input#id_reservation_link {
     .pocketbook-container {
         grid-template-columns: 1fr;
     }
-    #filler-img {
-        width: 21rem; 
-        height: 10rem;
-    }
     .add-trip-container {
         height: 15rem;
     }
     #add-campground-body {
         background-color: black;
         color:white;
-        padding-left: 0;
+        padding-left: 1rem;
+    }
+
+    img#filler-img {
+        width: 24rem;
     }
    
     input#id_name {
@@ -377,10 +411,13 @@ div#edit-image.col-md-7 {
     margin-right: 75px;
     padding: 0;
 }
+img#filler-img {
+    width: 15rem;
+}
 
   }
 
-  @media only screen and (max-width: 780px) {
+  @media only screen and (max-width: 900px) {
     .campsite-container {
         grid-template-columns: 2fr;
       }
@@ -388,8 +425,26 @@ div#edit-image.col-md-7 {
         grid-template-columns: 1fr;
     }
     #filler-img {
-        width: 15rem; 
-        height: 10rem;
+        width: 17rem; 
+    }
+    .pocketbook-container {
+        grid-template-columns: 1fr;
+    }
+  
+  }
+
+  @media only screen and (max-width: 1050px) {
+    .campsite-container {
+        grid-template-columns: 2fr;
+      }
+    .pocketbook-container {
+        grid-template-columns: 1fr;
+    }
+    #filler-img {
+        width: 17rem; 
+    }
+    .pocketbook-container {
+        grid-template-columns: 1fr;
     }
   
   }

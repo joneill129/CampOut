@@ -8,7 +8,7 @@
 {% endfor %}
 
 <!-- new code below -->
-<form action="{% url 'photos' photo.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+<form action="{% url 'photos' user.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
     {% csrf_token %}
     <input type="file" name="photo-file">
     <br><br>

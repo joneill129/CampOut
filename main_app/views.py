@@ -7,7 +7,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+import uuid
+import boto3
 
 import requests
 import os
@@ -56,7 +57,7 @@ def add_trip(request, campground_id):
         campground_id=campground_id
         )
 
-def photos(request):
+def add_photo(request, campground_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -68,12 +69,12 @@ def photos(request):
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            photo = Photo(url=url)
+            # we can assign to cat_id or cat (if you have a cat object)
+            photo = Photo(url=url, campground_id=campground_id)
             photo.save()
         except:
             print('An error occurred uploading file to S3')
-    return redirect('photos')
-
+    return redirect('detail', campground_id=campground_id)
 
 class CampgroundCreate(LoginRequiredMixin, CreateView):
     model = Campground

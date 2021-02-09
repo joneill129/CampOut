@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="photo-container">
+    {% for photo in photos %}
+    <div class="photos">
+      <img src="{{photo.url}}" class="rounded" style="width: 20rem; height: 20rem; box-shadow: 0 0 5px 2px  rgb(0, 54, 7);" /> </div>
+      {% empty %}
+  <div>No Photos Uploaded</div>
+
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

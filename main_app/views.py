@@ -29,7 +29,11 @@ def landing(request):
         all_campsites = spots
     return render(request, 'landing.html', {'all_campsites': all_campsites})
 
-@login_required
+def photos(request):                
+    photos = Photo.objects.all()
+    return render (request, 'campgrounds/photos.html', {'photos': photos})
+
+@login_required                         
 def pocketbook(request):
     campgrounds = Campground.objects.filter(user=request.user)
     return render(request, 

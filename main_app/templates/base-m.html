@@ -27,7 +27,7 @@
             rel="add_campsite">Add My Spot</a>
           <a class="nav-item nav-link active px-3" href="{% url 'pocketbook' %}" style="color: #ffffff" rel="index">My
             Pocketbook<span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link px-3" href="#" style="color: #ffffff" rel="photos">Photo
+          <a class="nav-item nav-link px-3" href="{% url 'photos' %}" style="color: #ffffff" rel="photos">Photo
             Albumn</a>
           <a class="nav-item nav-link px-3" href="/" style="color: #ffffff" rel="search">Campground Search</a>
           <a class="nav-item nav-link px-3" href="{% url 'logout' %}" style="color: #ffffff" rel="logout"
@@ -37,12 +37,12 @@
       {% else %}
       <a class="nav-item nav-link px-3" href="{% url 'login' %}" style="color: #ffffff" rel="login">Log In</a>
       <a class="nav-item nav-link px-3" href="{% url 'signup' %}" style="color: #ffffff" rel="signup">Sign Up</a>
-      <a class="nav-item nav-link px-3" href="#" style="color: #ffffff" rel="photos">Photo
+      <a class="nav-item nav-link px-3" href="{% url 'photos' %}" style="color: #ffffff" rel="photos">Photo
         Albumn</a>
       </div>
       {% endif %}
       </div>
-      <a class="navbar-brand" style="color: #ffffff" href="#">CampOut</a><img class="nav-logo"
+      <a class="navbar-brand" style="color: #ffffff" href="/">CampOut</a><img class="nav-logo"
         style="width: 4rem; height: 3rem;" src="{% static 'css/images/flamelogo.png' %}" alt="fire_logo">
     </nav>
   </header>

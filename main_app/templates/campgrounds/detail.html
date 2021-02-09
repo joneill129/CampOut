@@ -22,7 +22,7 @@
         <img src="{% static 'css/images/tent.png' %}" alt="tent" class="tent">
         <div class="detail-links">
           <div class="edit-del">
-        <a href="{% url 'campground_update' campground.id %}">Edit</a>&emsp;<a href="{% url 'campground_delete' campground.id %}" class="delete">Delete</a></div>
+        <a href="{% url 'campground_update' campground.id %}">✏️</a>&ensp;&ensp;&ensp;<a href="{% url 'campground_delete' campground.id %}" class="delete">X</a></div>
     </div>
     </div>
     <div class="col-md-6 p-4 ps-md-0" id="trip-table">
@@ -39,7 +39,7 @@
                 <tr>
                 <td>{{ trip.startdate }}</td>
                 <td>{{ trip.enddate }}</td>
-                <td><a href={{ trip.reservation_link }}>My Reservation</a>&emsp;&emsp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
+                <td><a href={{ trip.reservation_link }}>My Reservation</a>&ensp;&ensp;&ensp;&ensp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
               </tr>
             </tbody>
             {% endfor %}
@@ -54,16 +54,19 @@
             <form action="{% url 'add_photo' campground.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
               {% csrf_token %}
               <input type="file" name="photo-file">
-            <p><button type="submit" class="btn btn-danger" value="Upload Photo">Upload</button></p>
+            <p><button type="submit" class="btn btn-warning" value="Upload Photo" id="photoBtn">Upload</button></p>
           </form>
+        </div>
           <div class="photo-container">
             {% for photo in campground.photo_set.all %}
-            <div class="card border-primary">
-              <img src="{{photo.url}}" style= "width: 20rem; height: 20rem;" />
+            <div class="photos">
+              <img src="{{photo.url}}" class="rounded" style="width: 20rem; height: 20rem; box-shadow: 0 0 5px 2px  rgb(0, 54, 7);" /> </div>
               {% empty %}
-          <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-        </div>
+          <div>No Photos Uploaded</div>
+       
           {% endfor %}
         </div>
+      </div>
+      
         
 {% endblock %}

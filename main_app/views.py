@@ -15,7 +15,7 @@ import os
 
 api_key = os.environ['API_KEY']
 parameters = {"api_key":api_key}
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+S3_BASE_URL = 'https://s3-us-east-1.amazonaws.com/'
 BUCKET = 'unit4project'
 
 def landing(request):
@@ -68,7 +68,7 @@ def add_photo(request, campground_id):
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
-            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            url = f"https://unit4project.s3.amazonaws.com/{key}"
             # we can assign to cat_id or cat (if you have a cat object)
             photo = Photo(url=url, campground_id=campground_id)
             photo.save()

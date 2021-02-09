@@ -45,23 +45,25 @@
             {% endfor %}
           </table>
         </div>
+      </div>
+    </div>
+    <hr />
           <div>
-        {% for photo in campground.photo_set.all %}
-          <img class="responsive-img card-panel" src="{{photo.url}}" />
-        {% empty %}
+            <h3 class="card-text">My Photos</h3>
+            <p><small class="text-muted">All photos will be publicly viewable in the main photo albumn</small></p>
+            <form action="{% url 'add_photo' campground.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+              {% csrf_token %}
+              <input type="file" name="photo-file">
+            <p><button type="submit" class="btn btn-danger" value="Upload Photo">Upload</button></p>
+          </form>
+          <div class="photo-container">
+            {% for photo in campground.photo_set.all %}
+            <div class="card border-primary">
+              <img src="{{photo.url}}" style= "width: 20rem; height: 20rem;" />
+              {% empty %}
           <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+        </div>
           {% endfor %}
         </div>
-
-        <form action="{% url 'add_photo' campground.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-          {% csrf_token %}
-          <input type="file" name="photo-file">
-          <br><br>
-          <input type="submit" class="btn" value="Upload Photo">
-      </form>
-    </div>
-  </div>
-
-
-  
+        
 {% endblock %}

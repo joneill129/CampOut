@@ -200,6 +200,17 @@ input#id_startdate {
     display: flex;
 }
 
+.photo-row {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: auto;
+    
+    word-wrap: break-word;
+}
+
+
 
 /* Add Campground Page */
 #add-campground-header {

@@ -179,10 +179,6 @@ input#id_startdate {
      background-color: rgb(0, 54, 7);;
  }
 
- td {
-     background-color: white;
- }
-
  .tent {
      height: 9rem;
      width: 13rem;
@@ -205,16 +201,17 @@ input#id_startdate {
     align-items: center;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 1rem;
-    margin: auto;
-    padding-bottom: 5rem;
-    padding-left: 4rem;
+    padding: 2rem 0 5rem 4rem;
 }
 
 #photoBtn {
     margin-top: 10px;
 }
 
-
+/* Photo index page*/
+.campground-photo {
+    background-color: black;
+}
 
 /* Add Campground Page */
 #add-campground-header {

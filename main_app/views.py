@@ -82,7 +82,7 @@ def add_photo(request, campground_id):
 
 class CampgroundCreate(LoginRequiredMixin, CreateView):
     model = Campground
-    fields = ['name','city', 'state', 'zipcode', 'phone', 'directions']
+    fields = ['name','city', 'state', 'zipcode', 'phone']
     success_url = '/campgrounds/'
 
     def form_valid(self, form):
@@ -91,7 +91,7 @@ class CampgroundCreate(LoginRequiredMixin, CreateView):
 
 class CampgroundUpdate(LoginRequiredMixin, UpdateView):
     model = Campground
-    fields = ['city', 'state', 'zipcode', 'phone', 'directions']
+    fields = ['city', 'state', 'zipcode', 'phone']
 
 class CampgroundDelete(LoginRequiredMixin, DeleteView):
     model = Campground

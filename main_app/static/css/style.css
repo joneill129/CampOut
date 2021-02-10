@@ -26,11 +26,13 @@ body {
 /* landing/Search page */
 
 .landing-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .landing-body {
@@ -238,12 +240,12 @@ label {
   font-size: 20px;
   width: 18rem;
   padding-top: 1rem;
-  box-shadow: 0 0 5px 2px rgb(0, 54, 7); 
+  box-shadow: 0 0 5px 2px rgb(0, 54, 7);
   margin-bottom: 3rem;
 }
 
 .campground-photos-header {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 /* Add Campground Page */
@@ -320,26 +322,26 @@ input#id_phone {
 
 /* Edit Trip Details Page*/
 #edit-trip-body {
-    display: flex;
-    justify-content: flex-start;
-    background: url("images/flames.jpg") no-repeat;
-    color: white;
-    background-size: cover;
-    height: 30rem;
-    padding-top: 50px;
-    box-shadow: 0 0 5px 2px rgb(0, 54, 7);
+  display: flex;
+  justify-content: flex-start;
+  background: url("images/flames.jpg") no-repeat;
+  color: white;
+  background-size: cover;
+  height: 30rem;
+  padding-top: 50px;
+  box-shadow: 0 0 2px 2px rgb(0, 54, 7);
 }
 
 .edit-trip-submit-btn {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #edit-trip-header {
-    text-align: center;
-    background-color: rgb(0, 54, 7);
-    color: white;
-    box-shadow: 0 0 5px 2px rgb(0, 54, 7);
+  text-align: center;
+  background-color: rgb(0, 54, 7);
+  color: white;
+  box-shadow: 0 0 5px 2px rgb(0, 54, 7);
 }
 
 input#id_startdate {
@@ -379,7 +381,6 @@ input#id_reservation_link {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  
 }
 
 @media only screen and (max-width: 600px) {

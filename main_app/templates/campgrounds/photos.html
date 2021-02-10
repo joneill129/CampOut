@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {% block content %}
-<h1>Camping Trip Photos:</h1>
+<h1 class="campground-photos-header">Campground Photos:</h1>
 <hr />
 <div class="photo-container">
     {% for photo in photos %}
@@ -12,8 +12,6 @@
     </div>
       {% empty %}
   <div>No Photos Uploaded</div>
-
   {% endfor %}
-</div>
-</div>
+
 {% endblock %}

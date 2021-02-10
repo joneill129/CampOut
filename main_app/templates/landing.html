@@ -1,7 +1,8 @@
 {% extends 'base.html'%}
 {% block content %}
 {% load static %}
-<div class="landing-header">
+<div class="landing-container">
+  <div class="landing-body">
   <h2 class="search-header">Plan your next adventure</h2>
   {% if user.is_authenticated %}
   <p>Search, Reserve, Log..</p>
@@ -12,6 +13,7 @@
     <input type="text" name="stateCode" placeholder="Enter state code" class="text-center" id="search-input">
     <button type="submit" class="btn-danger btn-md">Search Campgrounds</button>
   </form>
+</div>
 </div>
 <div class="campsite-container">
   {% for i in all_campsites %}

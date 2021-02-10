@@ -52,7 +52,7 @@
 </div>
 <hr />
 <div>
-  <h3 class="card-text">My Photos</h3>
+  <h3 class="card-text">My Photos:</h3>
   <p><small class="text-muted">All photos will be publicly viewable in the main photo albumn</small></p>
   <form action="{% url 'add_photo' campground.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
     {% csrf_token %}
@@ -68,10 +68,7 @@
   </div>
   {% empty %}
   <div>No Photos Uploaded</div>
-
   {% endfor %}
 </div>
 </div>
-
-
 {% endblock %}

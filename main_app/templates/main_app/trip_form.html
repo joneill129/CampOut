@@ -2,28 +2,25 @@
 {% load static %}
 {% block content %}
 
-
-<div class="edit-container">
-<div class="card mb-3 border-primary" style="max-width: 700px">
-    <div class="row g-0">
-      <div class="col-md-4" >
-        <div class="edit-header">
-      <h4 class="card-title">Edit trip details for {{ trip.startdate }}</h4>
-        </div>
-      <div class="card-body" id="edit-body">
-          <form action='' method='post'>
-              {% csrf_token %}
-              <table>
-                  {{ form.as_table }}
-              </table>
-              <button type="submit" class="btn-warning" id="edit-btn">Update</button>
-          </form>
-      </div>
+<div class="add-campground-container">
+    <div class="card-header" id="edit-trip-header">
+        <h2>Edit trip details for {{ trip.startdate }}</h2>
     </div>
-    <div class="col-md-7" id="edit-image">
-      <img src="{% static 'css/images/tent.png' %}" alt="campfire" id="filler-img">
+    <div class="card-body" id="edit-trip-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <div class="edit-trip-submit-btn">
+                <button type="submit" class="btn-danger btn-md" id="add-submit-btn">
+                    Add to Pocketbook
+                </button>
+        </form>
     </div>
-    </div>
-  </div>
+</div>
+</div>
 {% endblock %}
+
+
 

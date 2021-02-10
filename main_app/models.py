@@ -37,6 +37,7 @@ class Trip(models.Model):
 class Photo(models.Model):
     url = models.CharField(max_length=200)
     campground = models.ForeignKey(Campground, on_delete=models.CASCADE)
+    
 
     def get_absolute_url(self):
         return f"Photo for campground_id: {self.campground_id} @{self.url}"

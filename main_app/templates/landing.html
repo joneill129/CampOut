@@ -2,41 +2,39 @@
 {% block content %}
 {% load static %}
 <div class="landing-header">
-<h2 class="search-header">Plan your next adventure</h2>
-{% if user.is_authenticated %}
-<p>Search, Reserve, Log..</p> 
+  <h2 class="search-header">Plan your next adventure</h2>
+  {% if user.is_authenticated %}
+  <p>Search, Reserve, Log..</p>
   {% else %}
-<p>Search campgrounds, make reservations, and log your new adventure </p>
-{% endif%}
-<form action='' method="GET">
-  <input type="text" name ="stateCode" placeholder="Enter state code" class ="text-center" id="search-input">
-  <button type="submit" class ="btn-danger btn-md">Search Campgrounds</button>
-</form>
-</div>
-<div class="campsite-container">
-{% for i in all_campsites %}
-
-<div class="card border-primary" id="search">
-  {% if i.images.0.url %}
-  <img src={{i.images.0.url}} class="card-img-top" alt="..." style="height: 12rem;">
-  {% else %}
-  <img src="{% static 'css/images/search.jpg' %}" class="card-img-top" alt="..." class="search-img2">
-    {% endif %}
-  <div class="card-body" id="search-body">
-    <h5 class="card-title">{{i.name}}</h5>
-    {% if i.addresses %}
-    <div class="search-data">
-    {{ i.addresses.0.city }}<br>{{ i.addresses.0.line1 }}, {{ i.addresses.0.stateCode }}, {{ i.addresses.0.postalCode }}
-  </div>
-        {% else %}
-          <p>The great outdoors!</p>
-      {% endif %}
-      <p>Total Sites:&ensp;<strong>{{i.campsites.totalSites}}</strong></p>
-      <a href={{i.reservationUrl}}><button class ="btn-danger btn-md">Reserve</button></a>
-  </div>
-    
+  <p>Search campgrounds, make reservations, and log your new adventure </p>
+  {% endif%}
+  <form action='' method="GET">
+    <input type="text" name="stateCode" placeholder="Enter state code" class="text-center" id="search-input">
+    <button type="submit" class="btn-danger btn-md">Search Campgrounds</button>
   </form>
 </div>
-{% endfor %}
+<div class="campsite-container">
+  {% for i in all_campsites %}
+  <div class="card" id="search">
+    {% if i.images.0.url %}
+    <img src={{i.images.0.url}} class="card-img-top" alt="..." style="height: 13rem;">
+    {% else %}
+    <img src="{% static 'css/images/search.jpg' %}" class="card-img-top" alt="..." style="height: 13rem;">
+    {% endif %}
+    <div class="card-body" id="search-body">
+      <h5 class="card-title">{{i.name}}</h5>
+      {% if i.addresses %}
+      {{ i.addresses.0.city }}{{ i.addresses.0.line1 }}, {{ i.addresses.0.stateCode }}, {{ i.addresses.0.postalCode}}
+      {% else %}
+      <p>The great outdoors!</p>
+      {% endif %}
+      <br>
+      <p>Total Sites:&ensp;<strong>{{i.campsites.totalSites}}</strong></p>
+      <a href={{i.reservationUrl}}><button class="btn-danger btn-md">Reserve</button></a>
+    </div>
+  </div>
+  </form>
+  {% endfor %}
+</div>
 </div>
 {% endblock %}

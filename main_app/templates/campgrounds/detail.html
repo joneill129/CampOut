@@ -37,9 +37,9 @@
             {% for trip in campground.trip_set.all %}
             <tbody>
                 <tr>
-                <td>{{ trip.startdate }}</td>
-                <td>{{ trip.enddate }}</td>
-                <td><a href={{ trip.reservation_link }}>My Reservation</a>&ensp;&ensp;&ensp;&ensp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
+                <td style="background-color: white;">{{ trip.startdate }}</td>
+                <td style="background-color: white;">{{ trip.enddate }}</td>
+                <td style="background-color: white;"><a href={{ trip.reservation_link }}>My Reservation</a>&ensp;&ensp;&ensp;&ensp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
               </tr>
             </tbody>
             {% endfor %}

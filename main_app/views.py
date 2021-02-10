@@ -73,6 +73,7 @@ def add_photo(request, campground_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
             url = f"https://unit4project.s3.amazonaws.com/{key}"
+            
             # we can assign to cat_id or cat (if you have a cat object)
             photo = Photo(url=url, campground_id=campground_id)
             photo.save()

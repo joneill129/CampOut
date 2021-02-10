@@ -1,582 +1,481 @@
 html {
-    box-sizing: border-box;
-  }
-  
-  /* The Universal Selector */
-  *, /* All elements*/
+  box-sizing: border-box;
+}
+
+/* The Universal Selector */
+*, /* All elements*/
   *::before, /* All ::before pseudo-elements */
   *::after {
-    /* All ::after pseudo-elements */
-    /* height & width will now include border & padding by default
+  /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
       but can be over-ridden as needed */
-    box-sizing: inherit;
-  }
-  
-  /* resets font size to be 62.5% of the user preference -
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference -
     in most browser configurations this will be 10px */
-  :root {
-    font-size: 90%;
-  }
-  
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    height: 100vh;
-  }
+:root {
+  font-size: 90%;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  height: 100vh;
+}
 
 .container {
-    margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
 /* landing/Search page */
 .landing-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    background-color: rgb(0, 54, 7);
-    min-height: 50vh;
-    color: white;
-    flex: 0 0 auto;
-    margin-bottom: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(0, 54, 7);
+  min-height: 55vh;
+  color: white;
+  flex: 0 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .search-header {
-    font-size: 65px;
+  font-size: 65px;
 }
 
 #search-input {
-    width: 15rem;
-    height: 2rem;
+  width: 15rem;
+  height: 2rem;
 }
 
-
 .campsite-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 3rem;
-    margin: auto;
-    word-wrap: break-word;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 3rem;
+  margin: auto;
+  word-wrap: break-word;
+  padding-bottom: 5rem;
 }
 
 #search {
-   display: flex;
-   justify-content: center;
-   width: 100%;
-   flex: 0 0 auto;
-   box-shadow: 0 0 5px 2px  rgb(0, 54, 7);
-   
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex: 0 0 auto;
+  box-shadow: 0 0 5px 2px rgb(0, 54, 7);
 }
 
 #search-body {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-    flex-wrap: wrap;
-    text-align: center;
-    background-color: rgb(0, 54, 7);
-    color: white;
-    height: 28vh;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: rgb(0, 54, 7);
+  color: white;
+  height: 28vh;
 }
 
 .search-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 /* footer */
 .right {
-    background-color: black;
-    color: white;
-    margin-top: 20px;
-    padding-left: 10px;
+  background-color: black;
+  color: white;
+  margin-top: 20px;
+  padding-left: 10px;
 }
 
 /* Index(Pocketbook) page */
 p.no-adventures {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pocketbook-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(2, minmax(200px, 2fr));
-    gap: 3rem;
-    word-wrap: break-word;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, minmax(200px, 2fr));
+  gap: 3rem;
+  word-wrap: break-word;
 }
 
 .pocketbook-title {
-   display: flex;
-   justify-content: flex-start;
-   margin-top: 20px;
-   margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .name {
-    background-color: rgb(0, 54, 7);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: rgb(0, 54, 7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #filler-img {
-    width: 13rem; 
-    height: 10rem;
+  width: 13rem;
+  height: 10rem;
 }
 
 /* Detail page page */
 .add-trip-details {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding-left: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-left: 1rem;
 }
 
 .add-trip-container {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(0, 54, 7);
-    background-size: cover;
-    color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 8rem;
-    
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 54, 7);
+  background-size: cover;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 8rem;
 }
 
 input#id_reservation_link {
-   margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 input#id_startdate {
-    margin-left: 1rem;
- }
+  margin-left: 1rem;
+}
 
- input#id_enddate {
-    margin-left: 1rem;
- }
+input#id_enddate {
+  margin-left: 1rem;
+}
 
- label {
-    margin-left: 2rem;
- }
+label {
+  margin-left: 2rem;
+}
 
- #add-trip-button {
-     margin-left: 1rem;
- }
+#add-trip-button {
+  margin-left: 1rem;
+}
 
- #campground-details {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     background-color: rgb(0, 54, 7);
-     color: white;
- }
+#campground-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 54, 7);
+  color: white;
+}
 
- #details-container {
-     margin-bottom: 50px;
- }
+#details-container {
+  margin-bottom: 50px;
+}
 
- #trip-table {
-     background-color: rgb(0, 54, 7);;
- }
+#trip-table {
+  background-color: rgb(0, 54, 7);
+}
 
- .tent {
-     height: 9rem;
-     width: 13rem;
- }
+.tent {
+  height: 9rem;
+  width: 13rem;
+}
 
- .table {
-    border: 1px solid#428bca;
- }
+.table {
+  border: 1px solid#428bca;
+}
 
- .delete {
-     color: #d9534f;
- }
+.delete {
+  color: #d9534f;
+}
 
 .edit-del {
-    display: flex;
+  display: flex;
 }
 
 .photo-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 2rem 0 5rem 4rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem 0 5rem 4rem;
 }
 
 #photoBtn {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* Photo index page*/
 .campground-photo {
-    background-color: black;
+  background-color: black;
 }
 
 /* Add Campground Page */
 #add-campground-header {
-     margin-top: 50px;
-     background-color: rgb(0, 54, 7);
-     color: white;
-     
- }
+  text-align: center;
+  background-color: rgb(0, 54, 7);
+  color: white;
+}
 
- #add-campground-body {
-     padding-left: 17rem;
-     background: url("images/flames.jpg") no-repeat;
-     background-size: cover;
-     color:white;
-     height: 25rem;
-     padding-top: 30px;
- }
+#add-campground-body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: url("images/flames.jpg") no-repeat;
+  background-size: cover;
+  color: white;
+  height: 35rem;
+  padding-top: 50px;
+  box-shadow: 0 0 5px 2px rgb(0, 54, 7);
+}
 
- input#id_name {
-     width: 20rem;
-     margin-bottom: 1rem;
-     margin-left: 1rem;
- }
- input#id_city {
-    width: 20rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+input#id_name {
+  width: 30rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  font-size: 18px;
+}
+input#id_city {
+  width: 30rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  font-size: 18px;
 }
 input#id_state {
-    width: 20rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+  width: 30rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  font-size: 18px;
 }
-input#id_address{
-    width: 20rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+input#id_address {
+  width: 30rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  font-size: 18px;
 }
 input#id_zipcode {
-    width: 20rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-}
-input#id_directions {
-    width: 20rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+  width: 30rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  font-size: 18px;
 }
 input#id_phone {
-    width: 20rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+  width: 30rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  font-size: 18px;
 }
 
-#add-submit-btn {
-    margin-top: 18px;
-    margin-left: 2rem;
+.add-submit-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
 }
 
 /* Edit Trip Details Page*/
 .edit-header {
-    background-color: #0275d8;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 699px;
+  background-color: #0275d8;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 699px;
 }
 
 .edit-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    margin: 0 auto;
-    position: relative;
-    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin: 0 auto;
+  position: relative;
+  border: none;
 }
 
 #edit-image {
-    display: flex;
-    justify-content: flex-end;
-    align-items: left;
-    margin-top: 4rem;
-
+  display: flex;
+  justify-content: flex-end;
+  align-items: left;
+  margin-top: 4rem;
 }
 
 #edit-body {
-    padding-top: 1rem;
+  padding-top: 1rem;
 }
 
 input#id_startdate {
-    width: 12rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+  width: 12rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 input#id_enddate {
-    width: 12rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+  width: 12rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 input#id_reservation_link {
-    width: 12rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+  width: 12rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 #edit-btn {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 /* Delete entire campground entry page */
 .delete {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-@media only screen and (max-width: 400px) {
-    .campsite-container {
-      grid-template-columns: 1fr;
-    }
-    .pocketbook-container {
-        grid-template-columns: 1fr;
-    }
-    .add-trip-container {
-        height: 15rem;
-    }
-    #add-campground-body {
-        background-color: black;
-        color:white;
-        padding-left: 1rem;
-    }
-
-    img#filler-img {
-        width: 24rem;
-    }
-   
-    input#id_name {
-        width: 9rem;
-        margin-bottom: 1rem;
-    }
-    input#id_city {
-       width: 9rem;
-       margin-bottom: 1rem; 
-   }
-   input#id_state {
-       width: 9rem;
-       margin-bottom: 1rem; 
-   }
-   input#id_address{
-       width: 9rem;
-       margin-bottom: 1rem;
-       margin-left: 1rem;
-   }
-   input#id_zipcode {
-       width: 9rem;
-       margin-bottom: 1rem;
-   }
-   input#id_directions {
-       width: 9rem;
-       margin-bottom: 1rem;
-   }
-   input#id_phone {
-       width: 9rem;
-       margin-bottom: 1rem;
-   }
-   #add-submit-btn {
-    margin-top: 20px;
-    margin-left: 2rem;
-}
-.edit-header {
-    background-color: #0275d8;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 330px;
-}
-input#id_startdate {
-    width: 6rem;
-    margin-bottom: 1rem;
-    margin-left: 0;
-}
-
-input#id_enddate {
-    width: 6rem;
-    margin-bottom: 1rem;
-    margin-left: 0;
-}
-
-input#id_reservation_link {
-    width: 6rem;
-    margin-bottom: 1rem;
-    margin-left: 0;
-}
-div#edit.body.card-body {
-    padding: 0;
-}
-
-label {
-    margin: 0;
-}
-
-div#edit-image.col-md-7 {
-    margin-right: 75px;
-    padding: 0;
-}
-img#filler-img {
-    width: 15rem;
-}
-.photo-container {
-    grid-template-columns: repeat(1, minmax(200px, 1fr));
-    padding-left: 25px;
-}
-
-  }
 
 @media only screen and (max-width: 600px) {
-    .campsite-container {
-      grid-template-columns: 1fr;
-    }
-    .pocketbook-container {
-        grid-template-columns: 1fr;
-    }
-    .add-trip-container {
-        height: 15rem;
-    }
-    #add-campground-body {
-        background-color: black;
-        color:white;
-        padding-left: 1rem;
-    }
+  .campsite-container {
+    grid-template-columns: 1fr;
+  }
+  .pocketbook-container {
+    grid-template-columns: 1fr;
+  }
+  .add-trip-container {
+    height: 15rem;
+  }
+  #add-campground-body {
+    background-color: black;
+    color: white;
+    padding-left: 1rem;
+  }
 
-    img#filler-img {
-        width: 24rem;
-    }
-   
-    input#id_name {
-        width: 9rem;
-        margin-bottom: 1rem;
-    }
-    input#id_city {
-       width: 9rem;
-       margin-bottom: 1rem; 
-   }
-   input#id_state {
-       width: 9rem;
-       margin-bottom: 1rem; 
-   }
-   input#id_address{
-       width: 9rem;
-       margin-bottom: 1rem;
-       margin-left: 1rem;
-   }
-   input#id_zipcode {
-       width: 9rem;
-       margin-bottom: 1rem;
-   }
-   input#id_directions {
-       width: 9rem;
-       margin-bottom: 1rem;
-   }
-   input#id_phone {
-       width: 9rem;
-       margin-bottom: 1rem;
-   }
-   #add-submit-btn {
+  img#filler-img {
+    width: 24rem;
+  }
+
+  input#id_name {
+    width: 12rem;
+    margin-bottom: 1rem;
+  }
+  input#id_city {
+    width: 12rem;
+    margin-bottom: 1rem;
+  }
+  input#id_state {
+    width: 12rem;
+    margin-bottom: 1rem;
+  }
+  input#id_address {
+    width: 12rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+  input#id_zipcode {
+    width: 12rem;
+    margin-bottom: 1rem;
+  }
+  input#id_directions {
+    width: 12rem;
+    margin-bottom: 1rem;
+  }
+  input#id_phone {
+    width: 12rem;
+    margin-bottom: 1rem;
+  }
+  #add-submit-btn {
     margin-top: 20px;
     margin-left: 2rem;
-}
-.edit-header {
+  }
+  .edit-header {
     background-color: #0275d8;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 330px;
-}
-input#id_startdate {
+  }
+  input#id_startdate {
     width: 6rem;
     margin-bottom: 1rem;
     margin-left: 0;
-}
+  }
 
-input#id_enddate {
+  input#id_enddate {
     width: 6rem;
     margin-bottom: 1rem;
     margin-left: 0;
-}
+  }
 
-input#id_reservation_link {
+  input#id_reservation_link {
     width: 6rem;
     margin-bottom: 1rem;
     margin-left: 0;
-}
-div#edit.body.card-body {
+  }
+  div#edit.body.card-body {
     padding: 0;
-}
+  }
 
-label {
+  label {
     margin: 0;
-}
+  }
 
-div#edit-image.col-md-7 {
+  div#edit-image.col-md-7 {
     margin-right: 75px;
     padding: 0;
-}
-img#filler-img {
+  }
+  img#filler-img {
     width: 15rem;
-}
-.photo-container {
+  }
+  .photo-container {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
     padding-left: 35px;
+  }
 }
 
+@media only screen and (max-width: 900px) {
+  .campsite-container {
+    grid-template-columns: 2fr;
   }
-
-  @media only screen and (max-width: 900px) {
-    .campsite-container {
-        grid-template-columns: 2fr;
-      }
-    .pocketbook-container {
-        grid-template-columns: 1fr;
-    }
-    #filler-img {
-        width: 17rem; 
-    }
-    .pocketbook-container {
-        grid-template-columns: 1fr;
-    }
-  
+  .pocketbook-container {
+    grid-template-columns: 1fr;
   }
-
-  @media only screen and (max-width: 1050px) {
-    .campsite-container {
-        grid-template-columns: 2fr;
-      }
-    .pocketbook-container {
-        grid-template-columns: 1fr;
-    }
-    #filler-img {
-        width: 17rem; 
-    }
-    .pocketbook-container {
-        grid-template-columns: 1fr;
-    }
-  
+  #filler-img {
+    width: 17rem;
   }
+  .pocketbook-container {
+    grid-template-columns: 1fr;
+  }
+}
 
-
-
-
+@media only screen and (max-width: 1050px) {
+  .campsite-container {
+    grid-template-columns: 2fr;
+  }
+  .pocketbook-container {
+    grid-template-columns: 1fr;
+  }
+  #filler-img {
+    width: 17rem;
+  }
+  .pocketbook-container {
+    grid-template-columns: 1fr;
+  }
+}

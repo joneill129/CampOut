@@ -2,71 +2,76 @@
 {% load static %}
 {% block content %}
 <div class="add-trip-container">
-<div class="add-trip-details">
-<h3>Add Trip Details:</h3>
-</div>
+  <div class="add-trip-details">
+    <h3>Add Trip Details:</h3>
+  </div>
   <div class=trip-from>
-    <form action="{% url 'add_trip' campground.id %}"method='post'>
-        {% csrf_token %}
-        {{ trip_form.as_table }}
-        <button type="submit" class="btn-danger" id="add-trip-button">Add Trip</button>
-      </form>
-</div>
+    <form action="{% url 'add_trip' campground.id %}" method='post'>
+      {% csrf_token %}
+      {{ trip_form.as_table }}
+      <button type="submit" class="btn-danger" id="add-trip-button">Add Trip</button>
+    </form>
+  </div>
 </div>
 <div class="row g-0 position-relative" id="details-container">
-    <div class="col-md-6 mb-md-0 p-md-4" id="campground-details">
-        <h4 class="mt-0"><strong>{{ campground.name }}</strong></h4>
-        <p>{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
-        <p><strong>P:&ensp;</strong>{{ campground.phone }}</p>
-        <p><strong>Directions:</strong> {{ campground.directions }}</p>
-        <img src="{% static 'css/images/tent.png' %}" alt="tent" class="tent">
-        <div class="detail-links">
-          <div class="edit-del">
-        <a href="{% url 'campground_update' campground.id %}">✏️</a>&ensp;&ensp;&ensp;<a href="{% url 'campground_delete' campground.id %}" class="delete">X</a></div>
-    </div>
-    </div>
-    <div class="col-md-6 p-4 ps-md-0" id="trip-table">
-        <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Reservations&ensp;</th>
-              </tr>
-            </thead>
-            {% for trip in campground.trip_set.all %}
-            <tbody>
-                <tr>
-                <td style="background-color: white;">{{ trip.startdate }}</td>
-                <td style="background-color: white;">{{ trip.enddate }}</td>
-                <td style="background-color: white;"><a href={{ trip.reservation_link }}>My Reservation</a>&ensp;&ensp;&ensp;&ensp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
-              </tr>
-            </tbody>
-            {% endfor %}
-          </table>
-        </div>
+  <div class="col-md-6 mb-md-0 p-md-4" id="campground-details">
+    <h4 class="mt-0"><strong>{{ campground.name }}</strong></h4>
+    <p>{{ campground.city}}, {{ campground.state}} {{ campground.zipcode }}</p>
+    <p><strong>P:&ensp;</strong>{{ campground.phone }}</p>
+    <p><strong>Directions:</strong> {{ campground.directions }}</p>
+    <img src="{% static 'css/images/tent.png' %}" alt="tent" class="tent">
+    <div class="detail-links">
+      <div class="edit-del">
+        <a href="{% url 'campground_update' campground.id %}">✏️</a>&ensp;&ensp;&ensp;<a
+          href="{% url 'campground_delete' campground.id %}" class="delete">X</a>
       </div>
     </div>
-    <hr />
-          <div>
-            <h3 class="card-text">My Photos</h3>
-            <p><small class="text-muted">All photos will be publicly viewable in the main photo albumn</small></p>
-            <form action="{% url 'add_photo' campground.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-              {% csrf_token %}
-              <input type="file" name="photo-file">
-            <p><button type="submit" class="btn btn-warning" value="Upload Photo" id="photoBtn">Upload</button></p>
-          </form>
-        </div>
-          <div class="photo-container">
-            {% for photo in campground.photo_set.all %}
-            <div class="photos">
-              <img src="{{photo.url}}" class="rounded" style="width: 20rem; height: 20rem; box-shadow: 0 0 5px 2px  rgb(0, 54, 7);" /> </div>
-              {% empty %}
-          <div>No Photos Uploaded</div>
-       
-          {% endfor %}
-        </div>
-      </div>
-      
-        
+  </div>
+  <div class="col-md-6 p-4 ps-md-0" id="trip-table">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Reservations&ensp;</th>
+        </tr>
+      </thead>
+      {% for trip in campground.trip_set.all %}
+      <tbody>
+        <tr>
+          <td style="background-color: white;">{{ trip.startdate }}</td>
+          <td style="background-color: white;">{{ trip.enddate }}</td>
+          <td style="background-color: white;"><a href={{ trip.reservation_link }}>My
+              Reservation</a>&ensp;&ensp;&ensp;&ensp;<a href="{% url 'trip_update' trip.id %}">✏️</a>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</div>
+<hr />
+<div>
+  <h3 class="card-text">My Photos</h3>
+  <p><small class="text-muted">All photos will be publicly viewable in the main photo albumn</small></p>
+  <form action="{% url 'add_photo' campground.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {% csrf_token %}
+    <input type="file" name="photo-file">
+    <p><button type="submit" class="btn btn-warning" value="Upload Photo" id="photoBtn">Upload</button></p>
+  </form>
+</div>
+<div class="photo-container">
+  {% for photo in campground.photo_set.all %}
+  <div class="photos">
+    <img src="{{photo.url}}" class="rounded"
+      style="width: 20rem; height: 20rem; box-shadow: 0 0 5px 2px  rgb(0, 54, 7);" />
+  </div>
+  {% empty %}
+  <div>No Photos Uploaded</div>
+
+  {% endfor %}
+</div>
+</div>
+
+
 {% endblock %}

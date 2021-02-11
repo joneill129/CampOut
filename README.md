@@ -1,7 +1,7 @@
 # CampOut
 CampOut is an app where camping enthusiasts can search for campgrounds, find direct links to make reservations, log their trips, and share photos of their adventures.
 
-![landing](main_app/static/css/images/campout-main.png)
+![landing](https://campout-app.herokuapp.com/campgrounds/)
 
 # Technologies Used:
 - Python

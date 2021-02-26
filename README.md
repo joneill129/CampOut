@@ -20,9 +20,9 @@ CampOut is an app where camping enthusiasts can search for campgrounds, find dir
 # Getting Started
 This is a full-stack Django app using a PostgreSQL database that was built during my time in General Assembly's Software Engineering Immersive Program. It utilizes Djano's built in user authetication, and logged in users have full CRUD capabilities on one of three models. 
 
-Check it out [here](https://campout-app.herokuapp.com/)
+[Have a look at CampOut here](https://campout-app.herokuapp.com/)
 
-For a peek into the planning process, my Trello board can be viewed [here](https://trello.com/b/j4wrZBt4/campout)
+For a peek into the planning process, [check out my Trello board](https://trello.com/b/j4wrZBt4/campout)
 
 # Biggest Takeway
 I feel as though I have gained a more thorough understanding of how learning the ins and outs of one programming language, can make learning many different languages a much smoother process. 

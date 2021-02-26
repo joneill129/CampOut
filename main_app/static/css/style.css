@@ -23,8 +23,30 @@ body {
   height: 100vh;
 }
 
-/* landing/Search page */
+a:hover {
+  border: 1px solid rgb(238, 127, 7); 
+  background-color: rgb(29, 28, 28);
+}
 
+/* Nav Bar */
+.nav-list {
+  display: flex;
+  letter-spacing: 0.5px;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+/* Sign-up page */
+.signup-container {
+  margin-top: 20px;
+}
+
+/* Login page */
+.login-container {
+  margin-top: 20px;
+}
+
+/* landing/Search page */
 .landing-container {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -469,6 +491,11 @@ input#id_reservation_link {
   .photo-container {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
     padding-left: 35px;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
   }
 }
 
